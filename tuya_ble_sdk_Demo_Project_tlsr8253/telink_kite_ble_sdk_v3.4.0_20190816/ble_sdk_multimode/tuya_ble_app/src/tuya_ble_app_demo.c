@@ -213,7 +213,7 @@ static void tuya_cb_handler(tuya_ble_cb_evt_param_t* event)
 
 void tuya_ble_app_init(void)
 {
-    device_param.device_id_len = 0;    //If use the license stored by the SDK,initialized to 0, Otherwise 16 or 20.
+    device_param.device_id_len = 16;    //If use the license stored by the SDK,initialized to 0, Otherwise 16 or 20.
     
     if(device_param.device_id_len==16)
     {
@@ -240,7 +240,7 @@ void tuya_ble_app_init(void)
     //tuya_flash_init();
     tuya_ota_init();
 
-    ty_factory_flag = 1;//允许串口烧录授权 授权码
+    ty_factory_flag = 1;//
     //tuya_timer_start(TIMER_FIRST,1000);
 
     tuya_print_sysInfor();
