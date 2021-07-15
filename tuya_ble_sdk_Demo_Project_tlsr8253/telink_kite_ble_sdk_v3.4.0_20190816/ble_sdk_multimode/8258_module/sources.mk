@@ -29,6 +29,7 @@ tuya_ble_sdk/extern_components/mbedtls \
 tuya_ble_sdk/app/uart_common \
 tuya_ble_app/src \
 tuya_ble_app/src/sdk \
+tuya_ble_app/src/drive \
 drivers/8258 \
 . \
 common \

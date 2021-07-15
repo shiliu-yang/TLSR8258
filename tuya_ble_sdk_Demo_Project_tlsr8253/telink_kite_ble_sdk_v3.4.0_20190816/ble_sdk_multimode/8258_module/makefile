@@ -22,6 +22,7 @@ RM := rm -rf
 -include tuya_ble_sdk/app/uart_common/subdir.mk
 -include tuya_ble_app/src/subdir.mk
 -include tuya_ble_app/src/sdk/subdir.mk
+-include tuya_ble_app/src/drive/subdir.mk
 -include drivers/8258/subdir.mk
 -include common/subdir.mk
 -include boot/8258/subdir.mk
@@ -37,10 +38,12 @@ RM := rm -rf
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LST += \
+8258_module.lst \
 
 FLASH_IMAGE += \
 
 SIZEDUMMY += \
+sizedummy \
 
 
 # All Target
@@ -50,7 +53,7 @@ all: ble_sdk_multimode.elf secondary-outputs
 ble_sdk_multimode.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: TC32 C Linker'
-	tc32-elf-ld --gc-sections -L"D:\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode\proj_lib" -L"D:\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode\tuya_ble_sdk\sdk\lib" -T ../boot.link -o"ble_sdk_multimode.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	tc32-elf-ld --gc-sections -L"D:\My_Project\TLSR8258\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode\proj_lib" -L"D:\My_Project\TLSR8258\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode\tuya_ble_sdk\sdk\lib" -T ../boot.link -o"ble_sdk_multimode.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -79,7 +82,7 @@ clean:
 	-@echo ' '
 
 post-build:
-	-"D:\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode/tl_check_fw.sh"   8258_module   ble_sdk_multimode
+	-"D:\My_Project\TLSR8258\tuya_ble_sdk_Demo_Project_tlsr8253\telink_kite_ble_sdk_v3.4.0_20190816\ble_sdk_multimode/tl_check_fw.sh"   8258_module   ble_sdk_multimode
 	-@echo ' '
 
 secondary-outputs: $(LST) $(FLASH_IMAGE) $(SIZEDUMMY)

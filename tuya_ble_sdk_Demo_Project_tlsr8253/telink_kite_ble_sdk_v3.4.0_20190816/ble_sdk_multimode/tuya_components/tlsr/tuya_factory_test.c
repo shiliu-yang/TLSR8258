@@ -6,7 +6,7 @@
  */
 #include "tuya_ble_common.h"
 
-#include "tuya_ble_app_demo.h"
+#include "tuya_ble_app_main.h"
 
 #define TY_FIRMWARE_NAME     APP_BUILD_FIRMNAME
 #define TY_FIRMWARE_VER_STR  TY_APP_VER_STR
